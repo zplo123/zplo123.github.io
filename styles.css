@@ -5,7 +5,6 @@ body {
     color: white;
     padding: 20px;
     margin-bottom: 369px;
-    display: flex;
     text-align: center;
     font-family: lucida;
 }
@@ -42,7 +41,6 @@ body {
     font-size: 40px;
     font-family: lucida;
     padding: 20px;
-    display: flex;
     
 }
 #chillbeatsheader {
@@ -52,5 +50,4 @@ body {
     font-size: 40px;
     font-family: lucida;
     padding: 20px;
-    display: flex;
 }
