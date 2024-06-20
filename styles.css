@@ -7,6 +7,11 @@ body {
     justify-content: center;
     min-height: 50vh;
 }
+body::after {
+    content: "";
+    display: block;
+    height: 150px; /* Adjust the height to the desired space */
+}
 #textboxtext {
     color: black;
     font-size: 20px;
@@ -342,5 +347,15 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50.1%, -300%);
+    }
+    #filteroff {
+        transform: translate(320%, -0%);
+        width: 50px;
+        height: 28px;
+    }
+    #filteron {
+        transform: translate(210%, -0%);
+        width: 50px;
+        height: 28px;
     }
 }
