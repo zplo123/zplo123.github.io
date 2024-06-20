@@ -1,0 +1,314 @@
+/*#region-Main*/
+body {
+    background-color: black;
+}
+#textboxtext {
+    color: black;
+    font-size: 20px;
+    font-style: italic;
+}
+#textboxcontainer {
+    position:fixed;
+    top: 30%;
+    left: 68%;
+    text-align: center;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 300px;
+    border: 6px solid white;
+    overflow-y: scroll;
+    background-color: wheat;
+    box-shadow: 0 0 5px 1px white;
+    
+}
+#button1 {
+    width: 300px; height: 50px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: 3px solid white;
+    font-size: 20px;
+    font-weight: bold;
+}
+#button1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50.1%, -600%);
+}
+#button2 {
+    margin: auto;
+    display: block;
+}
+#button2 {
+    width: 300px; height: 50px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: 3px solid white;
+    font-size: 20px;
+    font-weight: bold;
+}
+#button2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50.1%, -300%);
+}
+#button3 {
+    margin: auto;
+    display: block;
+}
+#button3 {
+    width: 300px; height: 50px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: 3px solid white;
+    font-size: 20px;
+    font-weight: bold;
+}
+#button3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50.1%, -0%);
+}
+#page1header {
+    color: white;
+    font-family:monospace;
+    font-size: 40px;
+    font-family: lucida;
+}
+#page1header {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50.1%, -300%);
+}
+#page2header {
+    color: white;
+    font-family:monospace;
+    font-size: 40px;
+    font-family: lucida;
+}
+#page2header {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50.1%, -300%);
+}
+#page3header {
+    color: white;
+    font-family:monospace;
+    font-size: 40px;
+    font-family: lucida;
+}
+#page3header {
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50.1%, -300%);
+}
+#audio1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50.1%, -300%);
+}
+#audio2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50.1%, -300%);
+}
+#audio3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50.1%, -300%);
+}
+#startstopcontainer {
+    text-align: center;
+    margin-top: 10%;
+}
+#startbutton {
+    width: 120px;
+    height: 50px;
+}
+#stopbutton {
+    width: 120px;
+    height: 50px;
+}
+#shapecontainer {
+    text-align: center; 
+    position: relative;
+}
+#pitchcontainer {
+    text-align: center;  
+}
+#pancontainer {
+    text-align: center;
+}
+#filtercontainer {
+    text-align: center;
+}
+#filterslider {
+    width: 300px;
+}
+#panslider {
+    width: 300px;
+}
+#shapeslider {
+    width: 300px;
+}
+#pitchslider {
+    width: 300px;
+}
+#shapetext {
+    color: white;
+    text-align: center;
+}
+#pantext {
+    color: white;
+    text-align: center;
+}
+#filtertext {
+    color: white;
+    text-align: center;
+}
+#pitchtext {
+    color: white;
+    text-align: center;
+}
+
+/*#endregion*/
+
+@media (max-width:900px) {
+    body {
+        background-color: black;
+    }
+    #textboxtext {
+        color: black;
+        font-size: 20px;
+    }
+    #textboxcontainer {
+        position:absolute;
+        left: 50%;
+        top: 80%;
+        transform: translateY(200%);
+        width: 280px;
+        height: 200px;
+        border: 5px solid white;
+        overflow-y: scroll;
+        transform: translate(-50%, -50%);
+        text-align: left;
+    }
+    #button1 {
+        width: 300px; height: 50px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        border: 3px solid white;
+        font-size: 20px;
+    }
+    #button1 {
+        position: absolute;
+        top: 54%;
+        left: 50%;
+        bottom:100%;
+        transform: translate(-50.1%, -600%);
+    }
+    #button2 {
+        margin: auto;
+        display: block;
+    }
+    #button2 {
+        width: 300px; height: 50px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        border: 3px solid white;
+        font-size: 20px;
+    }
+    #button2 {
+        position: absolute;
+        top: 54%;
+        left: 50%;
+        bottom:100%;
+        transform: translate(-50.1%, -300%);
+    }
+    #button3 {
+        margin: auto;
+        display: block;
+    }
+    #button3 {
+        width: 300px; height: 50px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        border: 3px solid white;
+        font-size: 20px;
+    }
+    #button3 {
+        position: absolute;
+        top: 54%;
+        left: 50%;
+        bottom:100%;
+        transform: translate(-50.1%, -0%);
+    }
+    #page1header {
+        color: white;
+        font-family:monospace;
+        font-size: 0px;
+        font-family: lucida;
+    }
+    #page1header {
+        position: absolute;
+        top: 22%;
+        left: 50%;
+        transform: translate(-50.1%, -300%);
+    }
+    #page2header {
+        color: white;
+        font-family:monospace;
+        font-size: 40px;
+        font-family: lucida;
+    }
+    #page2header {
+        position: absolute;
+        top: 22%;
+        left: 50%;
+        transform: translate(-50.1%, -300%);
+    }
+    #page3header {
+        color: white;
+        font-family:monospace;
+        font-size: 40px;
+        font-family: lucida;
+    }
+    #page3header {
+        position: absolute;
+        top: 22%;
+        left: 50%;
+        transform: translate(-50.1%, -300%);
+    }
+    #audio1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50.1%, -300%);
+    }
+    #audio2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50.1%, -300%);
+    }
+    #audio3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50.1%, -300%);
+    }
+}
