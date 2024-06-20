@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Page1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  
+  <body onload="alertbutton()">
+    <main>
+        <h1 id="page1header">Wavetable Synth</h1> 
+
+        <div id="startstopcontainer">
+          <button id="startbutton">START</button>
+          <button id="stopbutton">STOP</button>
+        </div>
+
+        <h1 id="shapetext">Shape</h1>
+
+        <div id="shapecontainer">
+          <button id="square">Square</button>
+          <button id="sawtooth">Sawtooth</button>
+          <button id="triangle">Triangle</button>
+        </div>
+
+        <h1 id="pitchtext">Pitch</h1>
+
+        <div id="pitchcontainer">
+          <input type="range" min="0" max="100" value="50" id="pitchslider">
+        </div>
+
+        <h1 id="pantext">Pan</h1>
+
+        <div id="pancontainer">
+          <input type="range" min="1" max="100" value="50" id="panslider">
+        </div>
+
+        <h1 id="filtertext">Filter</h1>
+
+        <div id="filteronoffswitch">
+          <button id="filteron">On</button>
+          <button id="filteroff">Off</button>
+        </div>
+
+        <div id="filtertypebuttons">
+          <button id="allpassbutton">Allpass</button>
+          <button id="highpassbutton">Highpass</button>
+          <button id="lowpassbutton">Lowpass</button>
+          <button id="bandpassbutton">Bandpass</button>
+          <button id="notchbutton">Notch</button>
+        </div>
+        <div id="filtertypecontainer">
+          <input type="range" min="0" max="100" value="100" id="filterslider">
+        </div>
+    </main>
+  </body>
+  
+  <script src="script.js"></script>
+  
+</html>

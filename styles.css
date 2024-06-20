@@ -124,10 +124,24 @@ body {
 #startbutton {
     width: 120px;
     height: 50px;
+    background-color: rgb(46, 41, 41);
+    color: white;
+    cursor: pointer;
+    border: 3px solid white;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 0 5px 1px white;
 }
 #stopbutton {
     width: 120px;
     height: 50px;
+    background-color: rgb(46, 41, 41);
+    color: white;
+    cursor: pointer;
+    border: 3px solid white;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 0 5px 1px white;
 }
 #shapecontainer {
     text-align: center; 
@@ -144,9 +158,10 @@ body {
 }
 #filterslider {
     width: 300px;
+    margin-top: 30px;
 }
 #panslider {
-    width: 300px;
+    width: 100px;
 }
 #shapeslider {
     width: 300px;
@@ -161,6 +176,7 @@ body {
 #pantext {
     color: white;
     text-align: center;
+    font-size: 16px;
 }
 #filtertext {
     color: white;
@@ -170,7 +186,62 @@ body {
     color: white;
     text-align: center;
 }
+#filteronoffswitch {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+#filtertypebuttons {
+    text-align: center;
+    margin-top: 30px;
 
+}
+#allpassbutton {
+    width: 75px;
+    height: 35px;
+}
+#highpassbutton {
+    width: 75px;
+    height: 35px;
+}
+#lowpassbutton {
+    width: 75px;
+    height: 35px;
+}
+#bandpassbutton {
+    width: 75px;
+    height: 35px;
+}
+#notchbutton {
+    width: 75px;
+    height: 35px;
+}
+#sine {
+    width: 75px;
+    height: 35px;
+}
+#square {
+    width: 75px;
+    height: 35px;
+}
+#triangle {
+    width: 75px;
+    height: 35px;
+}
+#sawtooth {
+    width: 75px;
+    height: 35px;
+}
+#filteroff {
+    transform: translate(360%, -0%);
+    width: 50px;
+    height: 28px;
+}
+#filteron {
+    transform: translate(210%, -0%);
+    width: 50px;
+    height: 28px;
+}
 /*#endregion*/
 
 @media (max-width:900px) {
@@ -180,11 +251,12 @@ body {
     #textboxtext {
         color: black;
         font-size: 20px;
+        margin-top: 5px;
     }
     #textboxcontainer {
         position:absolute;
         left: 50%;
-        top: 80%;
+        top: 70%;
         transform: translateY(200%);
         width: 280px;
         height: 200px;

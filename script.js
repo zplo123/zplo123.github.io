@@ -2,11 +2,18 @@ function alertbutton() {
     alert("If using mobile turn silent mode off")
 }
 
+
+
 const audioContext = new AudioContext();
 let oscillator;
 let panner = audioContext.createStereoPanner();
 let biquadFilter = audioContext.createBiquadFilter();
+let isFilterOn = true;
+
 //
+
+
+
 const startButton = document.getElementById("startbutton");
 startButton.addEventListener("click", () => {
     if (oscillator) {
@@ -14,12 +21,16 @@ startButton.addEventListener("click", () => {
         oscillator = null;
     }
     oscillator = audioContext.createOscillator();
+    oscillator.connect(biquadFilter);
     oscillator.connect(panner);
+    biquadFilter.connect(audioContext.destination);
     panner.connect(audioContext.destination);
-    oscillator.frequency.value = 73.42;
+    oscillator.frequency.value = 98;
+    oscillator.type = "square";
     oscillator.start();
+    pitchslider.value = oscillator.frequency.value;
+    filterslider.value = biquadFilter.frequency.value;
 });
-//
 const stopButton = document.getElementById("stopbutton");
 stopButton.addEventListener("click", () => {
     if (oscillator) {
@@ -28,12 +39,28 @@ stopButton.addEventListener("click", () => {
     }
 });
 //
-const panslider = document.getElementById("panslider");
-panslider.addEventListener("input", () => {
-    let sliderValue = Number(panslider.value);
-    let panValue = (sliderValue - 50) / 50; 
-    panner.pan.value = panValue;
+
+
+
+const sinebutton = document.getElementById("sine");
+sinebutton.addEventListener("click", () => {
+    oscillator.type = "sine";
 });
+const squarebutton = document.getElementById("square");
+squarebutton.addEventListener("click", () => {
+    oscillator.type = "square";
+});
+const sawtoothbutton = document.getElementById("sawtooth");
+sawtoothbutton.addEventListener("click", () => {
+    oscillator.type = "sawtooth";
+});
+const trianglebutton = document.getElementById("triangle");
+trianglebutton.addEventListener("click", () => {
+    oscillator.type = "triangle";
+});
+
+
+
 //
 const pitchslider = document.getElementById("pitchslider");
 pitchslider.addEventListener("input", () => {
@@ -41,25 +68,77 @@ pitchslider.addEventListener("input", () => {
         oscillator.frequency.value = pitchslider.value;
     }
 });
-//
-const shapeslider = document.getElementById("shapeslider");
-shapeslider.addEventListener("input", () => {
-    const value = Number(shapeslider.value);
-    if (value < 25) {
-        oscillator.type = 'sine';
-    } else if (value < 50) {
-        oscillator.type = 'square';
-    } else if (value < 75) {
-        oscillator.type = 'sawtooth';
-    } else {
-        oscillator.type = 'triangle';
-    }
+const panslider = document.getElementById("panslider");
+panslider.addEventListener("input", () => {
+    let sliderValue = Number(panslider.value);
+    let panValue = (sliderValue - 50) / 50; 
+    panner.pan.value = panValue;
 });
 //
+
+
+
+
+
+
+
+
+const filterOnButton = document.getElementById("filteron");
+filterOnButton.addEventListener("click", () => {
+    oscillator.connect(biquadFilter);
+    biquadFilter.connect(audioContext.destination);
+    isFilterOn = true;
+});
+
+const filteroffButton = document.getElementById("filteroff");
+filteroffButton.addEventListener("click", () => {
+    biquadFilter.disconnect(audioContext.destination);
+    oscillator.disconnect(biquadFilter);
+    isFilterOn = false;
+});
+
 const filterslider = document.getElementById("filterslider");
 filterslider.addEventListener("input", () => {
-    biquadFilter.type = "lowpass";
-    biquadFilter.frequency.value = filterslider.value;
-    oscillator.connect(biquadFilter);
-    biquadFilter.connect(panner);
+    if (isFilterOn === true) {
+    let sliderValue = filterslider.value;
+    let minFreq = 110;
+    let maxFreq = 10000;
+    let frequency = minFreq + (sliderValue / 100) * (maxFreq - minFreq);
+    biquadFilter.frequency.value = frequency;
+    }
+});
+
+const allpassbutton = document.getElementById("allpassbutton");
+allpassbutton.addEventListener("click", () => {
+    if (isFilterOn === true && (biquadFilter.type !== "allpass")) {
+        biquadFilter.type = "allpass";
+    }
+});
+
+const highpassbutton = document.getElementById("highpassbutton");
+highpassbutton.addEventListener("click", () => {
+    if (isFilterOn && (biquadFilter.type !== "highpass")) {
+        biquadFilter.type = "highpass";
+    }
+});
+
+const lowpassbutton = document.getElementById("lowpassbutton");
+lowpassbutton.addEventListener("click", () => {
+    if (isFilterOn && (biquadFilter.type !== "lowpass")) {
+        biquadFilter.type = "lowpass";
+    }
+});
+
+const bandpassbutton = document.getElementById("bandpassbutton");
+bandpassbutton.addEventListener("click", () => {
+    if (isFilterOn && (biquadFilter.type !== "bandpass")) {
+        biquadFilter.type = "bandpass";
+    }
+});
+
+const notchbutton = document.getElementById("notchbutton");
+notchbutton.addEventListener("click", () => {
+    if (isFilterOn && (biquadFilter.type !== "notch")) {
+        biquadFilter.type = "notch";
+    }
 });
