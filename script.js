@@ -41,11 +41,6 @@ stopButton.addEventListener("click", () => {
 //
 
 
-
-const sinebutton = document.getElementById("sine");
-sinebutton.addEventListener("click", () => {
-    oscillator.type = "sine";
-});
 const squarebutton = document.getElementById("square");
 squarebutton.addEventListener("click", () => {
     oscillator.type = "square";
