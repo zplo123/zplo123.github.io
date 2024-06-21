@@ -10,8 +10,6 @@ let panner = audioContext.createStereoPanner();
 let biquadFilter = audioContext.createBiquadFilter();
 let isFilterOn = true;
 
-//
-
 
 
 const startButton = document.getElementById("startbutton");
@@ -41,6 +39,7 @@ stopButton.addEventListener("click", () => {
 //
 
 
+
 const squarebutton = document.getElementById("square");
 squarebutton.addEventListener("click", () => {
     oscillator.type = "square";
@@ -53,10 +52,12 @@ const trianglebutton = document.getElementById("triangle");
 trianglebutton.addEventListener("click", () => {
     oscillator.type = "triangle";
 });
+const sinebutton = document.getElementById("sine");
+sinebutton.addEventListener("click", () => {
+    oscillator.type = "sine";
+});
 
 
-
-//
 const pitchslider = document.getElementById("pitchslider");
 pitchslider.addEventListener("input", () => {
     if (oscillator) {
@@ -69,12 +70,6 @@ panslider.addEventListener("input", () => {
     let panValue = (sliderValue - 50) / 50; 
     panner.pan.value = panValue;
 });
-//
-
-
-
-
-
 
 
 
@@ -84,13 +79,47 @@ filterOnButton.addEventListener("click", () => {
     biquadFilter.connect(audioContext.destination);
     isFilterOn = true;
 });
-
 const filteroffButton = document.getElementById("filteroff");
 filteroffButton.addEventListener("click", () => {
     biquadFilter.disconnect(audioContext.destination);
     oscillator.disconnect(biquadFilter);
     isFilterOn = false;
 });
+
+
+
+const allpassbutton = document.getElementById("allpassbutton");
+allpassbutton.addEventListener("click", () => {
+    if (isFilterOn === true && (biquadFilter.type !== "allpass")) {
+        biquadFilter.type = "allpass";
+    }
+});
+const highpassbutton = document.getElementById("highpassbutton");
+highpassbutton.addEventListener("click", () => {
+    if (isFilterOn && (biquadFilter.type !== "highpass")) {
+        biquadFilter.type = "highpass";
+    }
+});
+const lowpassbutton = document.getElementById("lowpassbutton");
+lowpassbutton.addEventListener("click", () => {
+    if (isFilterOn && (biquadFilter.type !== "lowpass")) {
+        biquadFilter.type = "lowpass";
+    }
+});
+const bandpassbutton = document.getElementById("bandpassbutton");
+bandpassbutton.addEventListener("click", () => {
+    if (isFilterOn && (biquadFilter.type !== "bandpass")) {
+        biquadFilter.type = "bandpass";
+    }
+});
+const notchbutton = document.getElementById("notchbutton");
+notchbutton.addEventListener("click", () => {
+    if (isFilterOn && (biquadFilter.type !== "notch")) {
+        biquadFilter.type = "notch";
+    }
+});
+
+
 
 const filterslider = document.getElementById("filterslider");
 filterslider.addEventListener("input", () => {
@@ -100,40 +129,5 @@ filterslider.addEventListener("input", () => {
     let maxFreq = 10000;
     let frequency = minFreq + (sliderValue / 100) * (maxFreq - minFreq);
     biquadFilter.frequency.value = frequency;
-    }
-});
-
-const allpassbutton = document.getElementById("allpassbutton");
-allpassbutton.addEventListener("click", () => {
-    if (isFilterOn === true && (biquadFilter.type !== "allpass")) {
-        biquadFilter.type = "allpass";
-    }
-});
-
-const highpassbutton = document.getElementById("highpassbutton");
-highpassbutton.addEventListener("click", () => {
-    if (isFilterOn && (biquadFilter.type !== "highpass")) {
-        biquadFilter.type = "highpass";
-    }
-});
-
-const lowpassbutton = document.getElementById("lowpassbutton");
-lowpassbutton.addEventListener("click", () => {
-    if (isFilterOn && (biquadFilter.type !== "lowpass")) {
-        biquadFilter.type = "lowpass";
-    }
-});
-
-const bandpassbutton = document.getElementById("bandpassbutton");
-bandpassbutton.addEventListener("click", () => {
-    if (isFilterOn && (biquadFilter.type !== "bandpass")) {
-        biquadFilter.type = "bandpass";
-    }
-});
-
-const notchbutton = document.getElementById("notchbutton");
-notchbutton.addEventListener("click", () => {
-    if (isFilterOn && (biquadFilter.type !== "notch")) {
-        biquadFilter.type = "notch";
     }
 });

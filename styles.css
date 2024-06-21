@@ -1,4 +1,5 @@
-/*#region-Main*/
+/*#region-index*/
+
 body {
     background-color: black;
     display: flex;
@@ -27,12 +28,14 @@ body::after {
     position: fixed;
     right: 14%;
 }
+
+
 #menubuttoncontainer{
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-#button1 {
+#menubutton {
     width: 300px; height: 50px;
     background-color: black;
     color: white;
@@ -41,87 +44,23 @@ body::after {
     font-size: 20px;
     font-weight: bold;
 }
-#button1 {
+#menubutton {
     margin: auto;
     display: block;
     margin-bottom: 20px;
 }
-#button2 {
-    margin: auto;
-    display: block;
-    margin-bottom: 20px;
-}
-#button2 {
-    width: 300px; height: 50px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    border: 3px solid white;
-    font-size: 20px;
-    font-weight: bold;
-}
-#button3 {
-    margin: auto;
-    display: block;
-}
-#button3 {
-    width: 300px; height: 50px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-    border: 3px solid white;
-    font-size: 20px;
-    font-weight: bold;
-}
-#page1header {
+
+
+#wavetableheader {
     color: white;
     font-family:monospace;
     font-size: 40px;
     font-family: lucida;
     text-align: center;
 }
-#page2header {
-    color: white;
-    font-family:monospace;
-    font-size: 40px;
-    font-family: lucida;
-}
-#page2header {
-    position: absolute;
-    top: 22%;
-    left: 50%;
-    transform: translate(-50.1%, -300%);
-}
-#page3header {
-    color: white;
-    font-family:monospace;
-    font-size: 40px;
-    font-family: lucida;
-}
-#page3header {
-    position: absolute;
-    top: 22%;
-    left: 50%;
-    transform: translate(-50.1%, -300%);
-}
-#audio1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50.1%, -300%);
-}
-#audio2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50.1%, -300%);
-}
-#audio3 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50.1%, -300%);
-}
+/*#endregion*/
+
+/*#region-page1*/
 #startstopcontainer {
     text-align: center;
     margin-top: 10%;
@@ -148,22 +87,48 @@ body::after {
     font-weight: bold;
     box-shadow: 0 0 5px 1px white;
 }
-#shapecontainer {
+
+
+
+
+#shapetext {
+    color: white;
+    text-align: center;
+}
+#shapebuttoncontainer {
     text-align: center; 
     position: relative;
 }
-#pitchcontainer {
+
+
+#pitchtext {
+    color: white;
+    text-align: center;
+}
+#pitchslidercontainer {
     text-align: center;  
 }
-#pancontainer {
+
+
+#pantext {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+
+
+#filtertext {
+    color: white;
     text-align: center;
 }
-#filtercontainer {
-    text-align: center;
-}
+
+
 #filterslider {
     width: 300px;
     margin-top: 30px;
+}
+#panslidercontainer {
+    text-align: center;
 }
 #panslider {
     width: 100px;
@@ -174,32 +139,25 @@ body::after {
 #pitchslider {
     width: 300px;
 }
-#shapetext {
-    color: white;
-    text-align: center;
-}
-#pantext {
-    color: white;
-    text-align: center;
-    font-size: 16px;
-}
-#filtertext {
-    color: white;
-    text-align: center;
-}
-#pitchtext {
-    color: white;
-    text-align: center;
-}
+
+
+
 #filteronoffswitch {
     position: relative;
     display: inline-block;
     text-align: center;
 }
+#filteroff {
+    width: 50px;
+    height: 28px;
+}
+#filteron {
+    width: 50px;
+    height: 28px;
+}
 #filtertypebuttons {
     text-align: center;
     margin-top: 30px;
-
 }
 #allpassbutton {
     width: 75px;
@@ -221,6 +179,7 @@ body::after {
     width: 75px;
     height: 35px;
 }
+
 #sine {
     width: 75px;
     height: 35px;
@@ -237,15 +196,11 @@ body::after {
     width: 75px;
     height: 35px;
 }
-#filteroff {
-    transform: translate(360%, -0%);
-    width: 50px;
-    height: 28px;
-}
-#filteron {
-    transform: translate(210%, -0%);
-    width: 50px;
-    height: 28px;
+#defaultfilter {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    margin-top: -20px;
 }
 /*#endregion*/
 

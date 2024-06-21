@@ -10,7 +10,7 @@
   
   <body onload="alertbutton()">
     <main>
-        <h1 id="page1header">Wavetable Synth</h1> 
+        <h1 id="wavetableheader">Wavetable Synth</h1> 
 
         <div id="startstopcontainer">
           <button id="startbutton">START</button>
@@ -19,31 +19,28 @@
 
         <h1 id="shapetext">Shape</h1>
 
-        <div id="shapecontainer">
+        <div id="shapebuttoncontainer">
           <button id="square">Square</button>
           <button id="sawtooth">Sawtooth</button>
           <button id="triangle">Triangle</button>
+          <button id="sine">Sine</button>
         </div>
 
         <h1 id="pitchtext">Pitch</h1>
 
-        <div id="pitchcontainer">
+        <div id="pitchslidercontainer">
           <input type="range" min="0" max="100" value="50" id="pitchslider">
         </div>
 
-        <h1 id="pantext">Pan</h1>
-
-        <div id="pancontainer">
-          <input type="range" min="1" max="100" value="50" id="panslider">
-        </div>
+        
 
         <h1 id="filtertext">Filter</h1>
-
+          <h1 id="defaultfilter">Default Filter : Lowpass</h1>
         <div id="filteronoffswitch">
           <button id="filteron">On</button>
           <button id="filteroff">Off</button>
         </div>
-
+        
         <div id="filtertypebuttons">
           <button id="allpassbutton">Allpass</button>
           <button id="highpassbutton">Highpass</button>
@@ -53,6 +50,11 @@
         </div>
         <div id="filtertypecontainer">
           <input type="range" min="0" max="100" value="100" id="filterslider">
+        </div>
+        <h1 id="pantext">Pan</h1>
+
+        <div id="panslidercontainer">
+          <input type="range" min="1" max="100" value="50" id="panslider">
         </div>
     </main>
   </body>
