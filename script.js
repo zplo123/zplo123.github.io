@@ -1,17 +1,17 @@
 function alertbutton() {
     alert("If using mobile turn silent mode off")
 }
+//#region Synth
 
-
-
+//#region declarations
 const audioContext = new AudioContext();
 let oscillator;
 let panner = audioContext.createStereoPanner();
 let biquadFilter = audioContext.createBiquadFilter();
 let isFilterOn = true;
+//#endregion
 
-
-
+//#region startstopbuttons
 const startButton = document.getElementById("startbutton");
 startButton.addEventListener("click", () => {
     if (oscillator) {
@@ -36,10 +36,9 @@ stopButton.addEventListener("click", () => {
         oscillator = null;
     }
 });
-//
+//#endregion
 
-
-
+//#region shapebuttons
 const squarebutton = document.getElementById("square");
 squarebutton.addEventListener("click", () => {
     oscillator.type = "square";
@@ -56,8 +55,9 @@ const sinebutton = document.getElementById("sine");
 sinebutton.addEventListener("click", () => {
     oscillator.type = "sine";
 });
+//#endregion
 
-
+//#region sliders
 const pitchslider = document.getElementById("pitchslider");
 pitchslider.addEventListener("input", () => {
     if (oscillator) {
@@ -70,9 +70,19 @@ panslider.addEventListener("input", () => {
     let panValue = (sliderValue - 50) / 50; 
     panner.pan.value = panValue;
 });
+const filterslider = document.getElementById("filterslider");
+filterslider.addEventListener("input", () => {
+    if (isFilterOn === true) {
+    let sliderValue = filterslider.value;
+    let minFreq = 110;
+    let maxFreq = 10000;
+    let frequency = minFreq + (sliderValue / 100) * (maxFreq - minFreq);
+    biquadFilter.frequency.value = frequency;
+    }
+});
+//#endregion
 
-
-
+//#region filteronoffbuttons
 const filterOnButton = document.getElementById("filteron");
 filterOnButton.addEventListener("click", () => {
     oscillator.connect(biquadFilter);
@@ -85,9 +95,9 @@ filteroffButton.addEventListener("click", () => {
     oscillator.disconnect(biquadFilter);
     isFilterOn = false;
 });
+//#endregion
 
-
-
+//#region filtertypebuttons
 const allpassbutton = document.getElementById("allpassbutton");
 allpassbutton.addEventListener("click", () => {
     if (isFilterOn === true && (biquadFilter.type !== "allpass")) {
@@ -118,16 +128,6 @@ notchbutton.addEventListener("click", () => {
         biquadFilter.type = "notch";
     }
 });
+//#endregion
 
-
-
-const filterslider = document.getElementById("filterslider");
-filterslider.addEventListener("input", () => {
-    if (isFilterOn === true) {
-    let sliderValue = filterslider.value;
-    let minFreq = 110;
-    let maxFreq = 10000;
-    let frequency = minFreq + (sliderValue / 100) * (maxFreq - minFreq);
-    biquadFilter.frequency.value = frequency;
-    }
-});
+//#endregion

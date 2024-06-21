@@ -1,4 +1,5 @@
-/*#region-index*/
+/*#region-menu*/
+
 
 body {
     background-color: black;
@@ -13,12 +14,12 @@ body::after {
     display: block;
     height: 150px; /* Adjust the height to the desired space */
 }
-#textboxtext {
+#menutextboxtext {
     color: black;
     font-size: 20px;
     font-style: italic;
 }
-#textboxcontainer {
+#menutextboxcontainer {
     width: 300px;
     height: 300px;
     border: 6px solid white;
@@ -28,8 +29,6 @@ body::after {
     position: fixed;
     right: 14%;
 }
-
-
 #menubuttoncontainer{
     flex-direction: column;
     align-items: center;
@@ -51,10 +50,10 @@ body::after {
 }
 
 
-
 /*#endregion*/
 
-/*#region-page1*/
+/*#region-synth*/
+
 
 /*#region-text*/
 #wavetableheader {
@@ -128,7 +127,7 @@ body::after {
 /*#endregion*/
 
 /*#region-shapebuttons*/
-#shapebuttoncontainer {
+#shapebuttonscontainer {
     text-align: center; 
 }
 #sine {
@@ -204,18 +203,19 @@ body::after {
 }
 /*#endregion*/
 
+
 /*#endregion-page1*/
 
 @media (max-width:900px) {
     body {
         background-color: black;
     }
-    #textboxtext {
+    #menutextboxtext {
         color: black;
         font-size: 20px;
         margin-top: 5px;
     }
-    #textboxcontainer {
+    #menutextboxcontainer {
         position:absolute;
         left: 50%;
         top: 70%;
