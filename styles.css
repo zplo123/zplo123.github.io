@@ -55,6 +55,8 @@ body::after {
 /*#endregion*/
 
 /*#region-page1*/
+
+/*#region-text*/
 #wavetableheader {
     color: white;
     font-family:monospace;
@@ -62,9 +64,34 @@ body::after {
     font-family: lucida;
     text-align: center;
 }
+#filtertext {
+    color: white;
+    text-align: center;
+    font-family: lucida;
+}
+#pantext {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 50px;
+}
+#pitchtext {
+    color: white;
+    text-align: center;
+}
+#shapetext {
+    color: white;
+    text-align: center;
+}
+#defaultfiltertext {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    margin-top: -20px;
+}
+/*#endregion*/
 
-
-
+/*#region-startstopbuttons*/
 #startstopcontainer {
     text-align: center;
     margin-top: 10%;
@@ -91,49 +118,37 @@ body::after {
     font-weight: bold;
     box-shadow: 0 0 5px 1px white;
 }
+/*#endregion*/
 
-
-
-#shapetext {
-    color: white;
-    text-align: center;
-}
-
+/*#region-shapebuttons*/
 #shapebuttoncontainer {
     text-align: center; 
 }
-
-
-
-#pitchtext {
-    color: white;
-    text-align: center;
+#sine {
+    width: 75px;
+    height: 35px;
 }
-
-#pitchslidercontainer {
-    text-align: center;  
+#square {
+    width: 75px;
+    height: 35px;
 }
-
-
-#filtertext {
-    color: white;
-    text-align: center;
-    font-family: lucida;
+#triangle {
+    width: 75px;
+    height: 35px;
 }
+#sawtooth {
+    width: 75px;
+    height: 35px;
+}
+/*#endregion*/
 
-
+/*#region-sliders*/
 #filterslider {
     width: 300px;
     margin-top: 30px;
 }
 #filterslidercontainer {
     text-align: center;
-}
-#pantext {
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    margin-top: 50px;
 }
 #panslidercontainer {
     text-align: center;
@@ -147,8 +162,15 @@ body::after {
 #pitchslider {
     width: 300px;
 }
+#pitchslidercontainer {
+    text-align: center;  
+}
+/*#endregion*/
 
-
+/*#region-filterbuttons*/
+#filteronoffswitch {
+    text-align: center;
+}
 #filtertypebuttons {
     text-align: center;
     margin-top: 20px;
@@ -173,30 +195,9 @@ body::after {
     width: 75px;
     height: 35px;
 }
-
-#sine {
-    width: 75px;
-    height: 35px;
-}
-#square {
-    width: 75px;
-    height: 35px;
-}
-#triangle {
-    width: 75px;
-    height: 35px;
-}
-#sawtooth {
-    width: 75px;
-    height: 35px;
-}
-#defaultfilter {
-    color: white;
-    font-size: 14px;
-    text-align: center;
-    margin-top: -20px;
-}
 /*#endregion*/
+
+/*#endregion-page1*/
 
 @media (max-width:900px) {
     body {
@@ -218,93 +219,5 @@ body::after {
         overflow-y: scroll;
         transform: translate(-50%, -50%);
         text-align: left;
-    }
-    #button1 {
-        width: 300px; height: 50px;
-        background-color: black;
-        color: white;
-        cursor: pointer;
-        border: 3px solid white;
-        font-size: 20px;
-    }
-    #button2 {
-        width: 300px; height: 50px;
-        background-color: black;
-        color: white;
-        cursor: pointer;
-        border: 3px solid white;
-        font-size: 20px;
-    }
-    #button3 {
-        width: 300px; height: 50px;
-        background-color: black;
-        color: white;
-        cursor: pointer;
-        border: 3px solid white;
-        font-size: 20px;
-    }  
-    #page1header {
-        color: white;
-        font-family:monospace;
-        font-size: 0px;
-        font-family: lucida;
-    }
-    #page1header {
-        position: absolute;
-        top: 22%;
-        left: 50%;
-        transform: translate(-50.1%, -300%);
-    }
-    #page2header {
-        color: white;
-        font-family:monospace;
-        font-size: 40px;
-        font-family: lucida;
-    }
-    #page2header {
-        position: absolute;
-        top: 22%;
-        left: 50%;
-        transform: translate(-50.1%, -300%);
-    }
-    #page3header {
-        color: white;
-        font-family:monospace;
-        font-size: 40px;
-        font-family: lucida;
-    }
-    #page3header {
-        position: absolute;
-        top: 22%;
-        left: 50%;
-        transform: translate(-50.1%, -300%);
-    }
-    #audio1 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50.1%, -300%);
-    }
-    #audio2 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50.1%, -300%);
-    }
-    #audio3 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50.1%, -300%);
-    }
-    #filteroff {
-        transform: translate(320%, -0%);
-        width: 50px;
-        height: 28px;
-    }
-    #filteron {
-        transform: translate(210%, -0%);
-        width: 50px;
-        height: 28px;
     }
 }
