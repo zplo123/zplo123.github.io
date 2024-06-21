@@ -51,6 +51,10 @@ body::after {
 }
 
 
+
+/*#endregion*/
+
+/*#region-page1*/
 #wavetableheader {
     color: white;
     font-family:monospace;
@@ -58,9 +62,9 @@ body::after {
     font-family: lucida;
     text-align: center;
 }
-/*#endregion*/
 
-/*#region-page1*/
+
+
 #startstopcontainer {
     text-align: center;
     margin-top: 10%;
@@ -90,42 +94,46 @@ body::after {
 
 
 
-
 #shapetext {
     color: white;
     text-align: center;
 }
+
 #shapebuttoncontainer {
     text-align: center; 
-    position: relative;
 }
+
 
 
 #pitchtext {
     color: white;
     text-align: center;
 }
+
 #pitchslidercontainer {
     text-align: center;  
-}
-
-
-#pantext {
-    color: white;
-    text-align: center;
-    font-size: 16px;
 }
 
 
 #filtertext {
     color: white;
     text-align: center;
+    font-family: lucida;
 }
 
 
 #filterslider {
     width: 300px;
     margin-top: 30px;
+}
+#filterslidercontainer {
+    text-align: center;
+}
+#pantext {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 50px;
 }
 #panslidercontainer {
     text-align: center;
@@ -140,21 +148,6 @@ body::after {
     width: 300px;
 }
 
-
-
-#filteronoffswitch {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-}
-#filteroff {
-    width: 50px;
-    height: 28px;
-}
-#filteron {
-    width: 50px;
-    height: 28px;
-}
 #filtertypebuttons {
     text-align: center;
     margin-top: 30px;
