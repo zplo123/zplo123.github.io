@@ -66,27 +66,34 @@ body::after {
 #filtertext {
     color: white;
     text-align: center;
-    font-family: lucida;
+    font-family: monospace;
+    margin-top: 40px;
 }
 #pantext {
     color: white;
     text-align: center;
     font-size: 16px;
     margin-top: 50px;
+    font-family: monospace;
 }
 #pitchtext {
     color: white;
     text-align: center;
+    font-family: monospace;
+    margin-top: 40px;
 }
 #shapetext {
     color: white;
     text-align: center;
+    font-family: monospace;
+    margin-top: 40px;
 }
 #defaultfiltertext {
     color: white;
     font-size: 14px;
     text-align: center;
-    margin-top: -20px;
+    margin-top: -10px;
+    font-style: italic;
 }
 #frequencyadjustertext {
     color: white;
@@ -94,6 +101,13 @@ body::after {
     text-align: center;
     margin-top: 0px;
 
+}
+#defaultshapetext {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    margin-top: -10px;
+    font-style: italic;
 }
 /*#endregion*/
 
@@ -112,6 +126,7 @@ body::after {
     font-size: 22px;
     font-weight: bold;
     box-shadow: 0 0 5px 1px white;
+    font-family: monospace;
 }
 #stopbutton {
     width: 120px;
@@ -123,6 +138,7 @@ body::after {
     font-size: 22px;
     font-weight: bold;
     box-shadow: 0 0 5px 1px white;
+    font-family: monospace;
 }
 /*#endregion*/
 
@@ -151,7 +167,7 @@ body::after {
 /*#region-sliders*/
 #filterslider {
     width: 300px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 #filterslidercontainer {
     text-align: center;
@@ -179,7 +195,7 @@ body::after {
 }
 #filtertypebuttons {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 #allpassbutton {
     width: 75px;
@@ -202,6 +218,11 @@ body::after {
     height: 35px;
 }
 /*#endregion*/
+
+#pitchbuttonscontainer {
+    text-align: center;
+    
+}
 
 
 /*#endregion-page1*/

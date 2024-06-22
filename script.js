@@ -1,6 +1,7 @@
 function alertbutton() {
     alert("If using mobile turn silent mode off")
 }
+
 //#region Synth
 
 //#region declarations
@@ -23,8 +24,8 @@ startButton.addEventListener("click", () => {
     oscillator.connect(panner);
     biquadFilter.connect(audioContext.destination);
     panner.connect(audioContext.destination);
-    oscillator.frequency.value = 98;
-    oscillator.type = "square";
+    oscillator.frequency.value = 41;
+    oscillator.type = "sawtooth";
     oscillator.start();
     pitchslider.value = oscillator.frequency.value;
     filterslider.value = biquadFilter.frequency.value;
@@ -64,6 +65,11 @@ pitchslider.addEventListener("input", () => {
         oscillator.frequency.value = pitchslider.value;
     }
 });
+
+
+
+
+
 const panslider = document.getElementById("panslider");
 panslider.addEventListener("input", () => {
     let sliderValue = Number(panslider.value);
@@ -130,4 +136,17 @@ notchbutton.addEventListener("click", () => {
 });
 //#endregion
 
+const pitchupbutton = document.getElementById("pitchup");
+pitchupbutton.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * 2;
+    pitchslider.value = oscillator.frequency.value;
+});
+
+const pitchdownbutton = document.getElementById("pitchdown");
+pitchdownbutton.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value / 2;
+    pitchslider.value = oscillator.frequency.value;
+});
+
 //#endregion
+
