@@ -60,7 +60,6 @@ body::after {
     color: white;
     font-family:monospace;
     font-size: 40px;
-    font-family: lucida;
     text-align: center;
 }
 #filtertext {
@@ -100,6 +99,7 @@ body::after {
     font-size: 14px;
     text-align: center;
     margin-top: 0px;
+    font-family: monospace;
 
 }
 #defaultshapetext {
