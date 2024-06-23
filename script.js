@@ -24,7 +24,7 @@ startButton.addEventListener("click", () => {
     oscillator.connect(panner);
     biquadFilter.connect(audioContext.destination);
     panner.connect(audioContext.destination);
-    oscillator.frequency.value = 41;
+    oscillator.frequency.value = 92;
     oscillator.type = "sawtooth";
     oscillator.start();
     pitchslider.value = oscillator.frequency.value;
@@ -65,11 +65,6 @@ pitchslider.addEventListener("input", () => {
         oscillator.frequency.value = pitchslider.value;
     }
 });
-
-
-
-
-
 const panslider = document.getElementById("panslider");
 panslider.addEventListener("input", () => {
     let sliderValue = Number(panslider.value);
@@ -79,10 +74,9 @@ panslider.addEventListener("input", () => {
 const filterslider = document.getElementById("filterslider");
 filterslider.addEventListener("input", () => {
     if (isFilterOn === true) {
-    let sliderValue = filterslider.value;
-    let minFreq = 110;
+    let minFreq = 100;
     let maxFreq = 10000;
-    let frequency = minFreq + (sliderValue / 100) * (maxFreq - minFreq);
+    let frequency = minFreq + (filterslider.value / 100) * (maxFreq - minFreq);
     biquadFilter.frequency.value = frequency;
     }
 });
@@ -147,6 +141,39 @@ pitchdownbutton.addEventListener("click", () => {
     oscillator.frequency.value = oscillator.frequency.value / 2;
     pitchslider.value = oscillator.frequency.value;
 });
+const pitchdownfifth = document.getElementById("pitchdownfifth");
+pitchdownfifth.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-7 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const pitchupfifth = document.getElementById("pitchupfifth");
+pitchupfifth.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (7 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const pitchupthird = document.getElementById("pitchupthird");
+pitchupthird.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (4 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const pitchdownthird = document.getElementById("pitchdownthird");
+pitchdownthird.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-4 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const pitchupsecond = document.getElementById("pitchupsecond");
+pitchupsecond.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (3 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const pitchdownsecond = document.getElementById("pitchdownsecond");
+pitchdownsecond.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-3 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+
+
+
 
 //#endregion
 

@@ -219,11 +219,45 @@ body::after {
 }
 /*#endregion*/
 
+/*#region-pitchbuttons*/
 #pitchbuttonscontainer {
     text-align: center;
-    
+    margin-bottom: 50px;
+   
 }
-
+#pitchup {
+    width: 75px;
+    height: 35px;
+}
+#pitchdown {
+    width: 75px;
+    height: 35px;
+}
+#pitchupfifth {
+    width: 75px;
+    height: 35px;
+}
+#pitchdownfifth {
+    width: 75px;
+    height: 35px;
+}
+#pitchupthird {
+    width: 75px;
+    height: 35px;
+}
+#pitchdownthird {
+    width: 75px;
+    height: 35px;
+}
+#pitchupsecond {
+    width: 75px;
+    height: 35px;
+}
+#pitchdownsecond {
+    width: 75px;
+    height: 35px;
+}
+/*#endregion*/
 
 /*#endregion-page1*/
 
