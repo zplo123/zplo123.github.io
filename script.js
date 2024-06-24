@@ -5,11 +5,16 @@ function alertbutton() {
 //#region Synth
 
 //#region declarations
-const audioContext = new AudioContext();
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 let oscillator;
 let panner = audioContext.createStereoPanner();
 let biquadFilter = audioContext.createBiquadFilter();
 let isFilterOn = true;
+let isOscillatorPlaying = false;
+let currentOscillatorType = "sawtooth";
+let oscillators = [];
+let gainNode = audioContext.createGain();
+biquadFilter.frequency.value = 10000;
 //#endregion
 
 //#region startstopbuttons
@@ -23,19 +28,26 @@ startButton.addEventListener("click", () => {
     oscillator.connect(biquadFilter);
     oscillator.connect(panner);
     biquadFilter.connect(audioContext.destination);
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
     panner.connect(audioContext.destination);
     oscillator.frequency.value = 92;
     oscillator.type = "sawtooth";
     oscillator.start();
     pitchslider.value = oscillator.frequency.value;
     filterslider.value = biquadFilter.frequency.value;
+    oscillators.push(oscillator);
 });
 const stopButton = document.getElementById("stopbutton");
 stopButton.addEventListener("click", () => {
-    if (oscillator) {
-        oscillator.stop();
-        oscillator = null;
-    }
+    console.log(`Stopping ${oscillators.length} oscillators...`);
+    oscillators.forEach((osc, index) => {
+        console.log(`Stopping oscillator ${index + 1}`);
+        osc.stop();
+        osc.disconnect();
+    });
+    oscillators = [];
+    console.log("All oscillators stopped.");
 });
 //#endregion
 
@@ -43,18 +55,22 @@ stopButton.addEventListener("click", () => {
 const squarebutton = document.getElementById("square");
 squarebutton.addEventListener("click", () => {
     oscillator.type = "square";
+    currentOscillatorType = "square";
 });
 const sawtoothbutton = document.getElementById("sawtooth");
 sawtoothbutton.addEventListener("click", () => {
     oscillator.type = "sawtooth";
+    currentOscillatorType = "sawtooth";
 });
 const trianglebutton = document.getElementById("triangle");
 trianglebutton.addEventListener("click", () => {
     oscillator.type = "triangle";
+    currentOscillatorType = "triangle";
 });
 const sinebutton = document.getElementById("sine");
 sinebutton.addEventListener("click", () => {
     oscillator.type = "sine";
+    currentOscillatorType = "sine";
 });
 //#endregion
 
@@ -79,6 +95,14 @@ filterslider.addEventListener("input", () => {
     let frequency = minFreq + (filterslider.value / 100) * (maxFreq - minFreq);
     biquadFilter.frequency.value = frequency;
     }
+});
+const lforateslider = document.getElementById("lforate");
+lforateslider.addEventListener("input", () => {
+    lfo.frequency.value = lforateslider.value;
+});
+const lfodepthslider = document.getElementById("lfodepth");
+lfodepthslider.addEventListener("input", () => {
+    lfoDepth.gain.value = lfodepthslider.value;
 });
 //#endregion
 
@@ -130,12 +154,12 @@ notchbutton.addEventListener("click", () => {
 });
 //#endregion
 
+//#region pitchbuttons
 const pitchupbutton = document.getElementById("pitchup");
 pitchupbutton.addEventListener("click", () => {
     oscillator.frequency.value = oscillator.frequency.value * 2;
     pitchslider.value = oscillator.frequency.value;
 });
-
 const pitchdownbutton = document.getElementById("pitchdown");
 pitchdownbutton.addEventListener("click", () => {
     oscillator.frequency.value = oscillator.frequency.value / 2;
@@ -171,9 +195,36 @@ pitchdownsecond.addEventListener("click", () => {
     oscillator.frequency.value = oscillator.frequency.value * (2 ** (-3 / 12));
     pitchslider.value = oscillator.frequency.value;
 });
+//#endregion
+
+const lfo = audioContext.createOscillator();
+lfo.type = "triangle";
+lfo.frequency.value = 2;
+
+const lfoDepth = audioContext.createGain();
+lfoDepth.gain.value = 2.2;
+lfo.connect(lfoDepth);
+lfoDepth.connect(gainNode.gain);
+
+const lfoStartButton = document.getElementById("lfostart");
+lfoStartButton.addEventListener("click", () => {
+        lfo.start();
+});
+
+const lfosquarebutton = document.getElementById("squarelfo");
+lfosquarebutton.addEventListener("click", () => {
+    lfo.type = "square";
+});
+const lfotrianglebutton = document.getElementById("trianglelfo");
+lfotrianglebutton.addEventListener("click", () => {
+    lfo.type = "triangle";
+});
+const lfosawtoothbutton = document.getElementById("sawtoothlfo");
+lfosawtoothbutton.addEventListener("click", () => {
+    lfo.type = "sawtooth";
+});
 
 
 
 
 //#endregion
-
