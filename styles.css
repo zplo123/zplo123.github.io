@@ -1,6 +1,5 @@
 /*#region-menu*/
 
-
 body {
     background-color: black;
     display: flex;
@@ -49,11 +48,9 @@ body::after {
     margin-bottom: 20px;
 }
 
-
 /*#endregion*/
 
 /*#region-synth*/
-
 
 /*#region-text*/
 #wavetableheader {
@@ -66,7 +63,7 @@ body::after {
     color: white;
     text-align: center;
     font-family: monospace;
-    margin-top: 40px;
+    text-decoration: underline;
 }
 #pantext {
     color: white;
@@ -79,13 +76,16 @@ body::after {
     color: white;
     text-align: center;
     font-family: monospace;
-    margin-top: 40px;
+    text-decoration: underline;
+}
+#pitchbuttonstext {
+    height: 35px;
 }
 #shapetext {
     color: white;
     text-align: center;
     font-family: monospace;
-    margin-top: 40px;
+    text-decoration: underline;
 }
 #defaultfiltertext {
     color: white;
@@ -98,7 +98,7 @@ body::after {
     color: white;
     font-size: 14px;
     text-align: center;
-    margin-top: 0px;
+    margin-bottom: 30px;
     font-family: monospace;
 
 }
@@ -115,8 +115,42 @@ body::after {
     text-align: center;
     font-style: italic;
 }
+#lfotext {
+    color: white;
+    text-align: center;
+    font-family: monospace;
+    text-decoration: underline;
+}
+#semitonestext {
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-family: monospace;
+    text-decoration: underline;
+}
+#uptext {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-family: monospace;
+    font-style: italic;
+}
+#downtext {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-family: monospace;
+    font-style: italic;
+}
+#pitchslidertext {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-family: monospace;
+    font-style: italic;
+    margin-bottom: -10px;
+}
 /*#endregion*/
-
 /*#region-startstopbuttons*/
 #startstopcontainer {
     text-align: center;
@@ -147,10 +181,11 @@ body::after {
     font-family: monospace;
 }
 /*#endregion*/
-
 /*#region-shapebuttons*/
 #shapebuttonscontainer {
     text-align: center; 
+    margin-bottom: 30px;
+    
 }
 #sine {
     width: 75px;
@@ -169,8 +204,13 @@ body::after {
     height: 35px;
 }
 /*#endregion*/
-
 /*#region-sliders*/
+input[type='range']::-ms-track {
+    background: #ccc; /* Gray background */
+  }
+  input[type='range']::-webkit-slider-runnable-track {
+    background: #ccc; /* Gray background */
+  }
 #filterslider {
     width: 300px;
     margin-top: 10px;
@@ -189,17 +229,22 @@ body::after {
 }
 #pitchslider {
     width: 300px;
+    margin-bottom: 45px;
 }
 #pitchslidercontainer {
-    text-align: center;  
+    text-align: center; 
+    margin-top: 20px; 
 }
 /*#endregion*/
-
 /*#region-filterbuttons*/
 #filteronoffswitch {
     text-align: center;
 }
 #filtertypebuttons {
+    text-align: center;
+    margin-top: 10px;
+}
+#filtertypebuttons2 {
     text-align: center;
     margin-top: 10px;
 }
@@ -224,55 +269,35 @@ body::after {
     height: 35px;
 }
 /*#endregion*/
-
 /*#region-pitchbuttons*/
 #pitchbuttonscontainer {
     text-align: center;
-    margin-bottom: 50px;
-   
 }
-#pitchup {
-    width: 75px;
-    height: 35px;
+#pitchbuttonscontainer button{
+    width: 69px;
+    height: 33px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 20px;
 }
-#pitchdown {
-    width: 75px;
-    height: 35px;
+#pitchbuttongroupup {
+    margin-top: 15px;
+    border: 3px solid white;
 }
-#pitchupfifth {
-    width: 75px;
-    height: 35px;
-}
-#pitchdownfifth {
-    width: 75px;
-    height: 35px;
-}
-#pitchupthird {
-    width: 75px;
-    height: 35px;
-}
-#pitchdownthird {
-    width: 75px;
-    height: 35px;
-}
-#pitchupsecond {
-    width: 75px;
-    height: 35px;
-}
-#pitchdownsecond {
-    width: 75px;
-    height: 35px;
+#pitchbuttongroupdown {
+    margin-top: 20px;
+    border: 3px solid white;
 }
 /*#endregion*/
-
+/*#region-lfo*/
 #lfoControls {
     color: white;
     text-align: center;
-    margin-top: 75px;
+    margin-top: 20px;
 }
 #lfostart {
-    width: 100px;
-    height: 50px;
+    width: 80px;
+    height: 40px;
 }
 #lfotypebuttons {
     text-align: center;
@@ -284,7 +309,7 @@ body::after {
 }
 #lfodepth {
     width: 300px;
-    
+    margin-bottom: 30px;
 }
 #lforatetext {
     margin-top: 30px;
@@ -308,8 +333,31 @@ body::after {
     width: 75px;
     height: 35px;
 }
+/*#endregion*/
+/*#region-fullcontainers*/
+#shapefullcontainer {
+    border: 3px solid white;
+    margin-top: 30px;
+    background-color: rgb(20, 20, 95);
+}
+#lfofullcontainer {
+    border: 3px solid white;
+    margin-top: 30px;
+    background-color: rgb(83, 51, 34);
+}
+#pitchfullcontainer {
+    border: 3px solid white;
+    margin-top: 30px;
+    background-color: rgb(104, 35, 35);
+}
+#filterfullcontainer {
+    border: 3px solid white;
+    margin-top: 30px;
+    background-color: rgb(32, 83, 47);
+}
+/*#endregion*/
 
-/*#endregion-page1*/
+/*#endregion-synth*/
 
 @media (max-width:1375px) {
     body {

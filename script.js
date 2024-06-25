@@ -14,7 +14,6 @@ let isOscillatorPlaying = false;
 let currentOscillatorType = "sawtooth";
 let oscillators = [];
 let gainNode = audioContext.createGain();
-biquadFilter.frequency.value = 10000;
 //#endregion
 
 //#region startstopbuttons
@@ -24,13 +23,12 @@ startButton.addEventListener("click", () => {
         oscillator.stop();
         oscillator = null;
     }
-    oscillator = audioContext.createOscillator();
+    oscillator = audioContext.createOscillator()
     oscillator.connect(biquadFilter);
-    oscillator.connect(panner);
+    biquadFilter.connect(gainNode);
     biquadFilter.connect(audioContext.destination);
-    oscillator.connect(gainNode);
     gainNode.connect(audioContext.destination);
-    panner.connect(audioContext.destination);
+    biquadFilter.frequency.value = 16000;
     oscillator.frequency.value = 92;
     oscillator.type = "sawtooth";
     oscillator.start();
@@ -90,10 +88,9 @@ panslider.addEventListener("input", () => {
 const filterslider = document.getElementById("filterslider");
 filterslider.addEventListener("input", () => {
     if (isFilterOn === true) {
-    let minFreq = 100;
-    let maxFreq = 10000;
-    let frequency = minFreq + (filterslider.value / 100) * (maxFreq - minFreq);
-    biquadFilter.frequency.value = frequency;
+    let minFreq = 0;
+    let maxFreq = 16000;
+    biquadFilter.frequency.value = minFreq + (filterslider.value / 100) * (maxFreq - minFreq);
     }
 });
 const lforateslider = document.getElementById("lforate");
@@ -155,54 +152,140 @@ notchbutton.addEventListener("click", () => {
 //#endregion
 
 //#region pitchbuttons
-const pitchupbutton = document.getElementById("pitchup");
-pitchupbutton.addEventListener("click", () => {
-    oscillator.frequency.value = oscillator.frequency.value * 2;
+const onesemiup = document.getElementById("onesemiup");
+onesemiup.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (1 / 12));
     pitchslider.value = oscillator.frequency.value;
 });
-const pitchdownbutton = document.getElementById("pitchdown");
-pitchdownbutton.addEventListener("click", () => {
-    oscillator.frequency.value = oscillator.frequency.value / 2;
+const onesemidown = document.getElementById("onesemidown");
+onesemidown.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-1 / 12));
     pitchslider.value = oscillator.frequency.value;
 });
-const pitchdownfifth = document.getElementById("pitchdownfifth");
-pitchdownfifth.addEventListener("click", () => {
-    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-7 / 12));
+const twosemiup = document.getElementById("twosemiup");
+twosemiup.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (2 / 12));
     pitchslider.value = oscillator.frequency.value;
 });
-const pitchupfifth = document.getElementById("pitchupfifth");
-pitchupfifth.addEventListener("click", () => {
-    oscillator.frequency.value = oscillator.frequency.value * (2 ** (7 / 12));
+const twosemidown = document.getElementById("twosemidown");
+twosemidown.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-2 / 12));
     pitchslider.value = oscillator.frequency.value;
 });
-const pitchupthird = document.getElementById("pitchupthird");
-pitchupthird.addEventListener("click", () => {
-    oscillator.frequency.value = oscillator.frequency.value * (2 ** (4 / 12));
-    pitchslider.value = oscillator.frequency.value;
-});
-const pitchdownthird = document.getElementById("pitchdownthird");
-pitchdownthird.addEventListener("click", () => {
-    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-4 / 12));
-    pitchslider.value = oscillator.frequency.value;
-});
-const pitchupsecond = document.getElementById("pitchupsecond");
-pitchupsecond.addEventListener("click", () => {
+const threesemiup = document.getElementById("threesemiup");
+threesemiup.addEventListener("click", () => {
     oscillator.frequency.value = oscillator.frequency.value * (2 ** (3 / 12));
     pitchslider.value = oscillator.frequency.value;
 });
-const pitchdownsecond = document.getElementById("pitchdownsecond");
-pitchdownsecond.addEventListener("click", () => {
+const threesemidown = document.getElementById("threesemidown");
+threesemidown.addEventListener("click", () => {
     oscillator.frequency.value = oscillator.frequency.value * (2 ** (-3 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const foursemiup = document.getElementById("foursemiup");
+foursemiup.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (4 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const foursemidown = document.getElementById("foursemidown");
+foursemidown.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-4 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const fivesemiup = document.getElementById("fivesemiup");
+fivesemiup.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (5 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const fivesemidown = document.getElementById("fivesemidown");
+fivesemidown.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-5 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const sixsemiup = document.getElementById("sixsemiup");
+sixsemiup.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (6 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const sixsemidown = document.getElementById("sixsemidown");
+sixsemidown.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-6 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const sevensemiup = document.getElementById("sevensemiup");
+sevensemiup.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-7 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const sevensemidown = document.getElementById("sevensemidown");
+sevensemidown.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-7 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const eightsemiup = document.getElementById("eightsemiup");
+eightsemiup.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (8 / 12));
+    pitchslider.value = oscillator.frequency.value;
+}
+);
+const eightsemidown = document.getElementById("eightsemidown");
+eightsemidown.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-8 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const ninesemiup = document.getElementById("ninesemiup");
+ninesemiup.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (9 / 12));
+    pitchslider.value = oscillator.frequency.value;
+}
+);
+const ninesemidown = document.getElementById("ninesemidown");
+ninesemidown.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-9 / 12));
+    pitchslider.value = oscillator.frequency.value;
+}
+);
+const tensemiup = document.getElementById("tensemiup");
+tensemiup.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (10 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const tensemidown = document.getElementById("tensemidown");
+tensemidown.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-10 / 12));
+    pitchslider.value = oscillator.frequency.value;
+}
+);
+const elevensemiup = document.getElementById("elevensemiup");
+elevensemiup.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (11 / 12));
+    pitchslider.value = oscillator.frequency.value;
+});
+const elevensemidown = document.getElementById("elevensemidown");
+elevensemidown.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-11 / 12));
+    pitchslider.value = oscillator.frequency.value;
+
+});
+const twelvesemiup = document.getElementById("twelvesemiup");
+twelvesemiup.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value * 2;
+    pitchslider.value = oscillator.frequency.value;
+});
+const twelvesemidown = document.getElementById("twelvesemidown");
+twelvesemidown.addEventListener("click", () => {
+    oscillator.frequency.value = oscillator.frequency.value / 2;
     pitchslider.value = oscillator.frequency.value;
 });
 //#endregion
 
+//#region lfo
 const lfo = audioContext.createOscillator();
-lfo.type = "triangle";
+lfo.type = "sawtooth";
 lfo.frequency.value = 2;
 
 const lfoDepth = audioContext.createGain();
-lfoDepth.gain.value = 2.2;
+lfoDepth.gain.value = 3;
 lfo.connect(lfoDepth);
 lfoDepth.connect(gainNode.gain);
 
@@ -210,7 +293,6 @@ const lfoStartButton = document.getElementById("lfostart");
 lfoStartButton.addEventListener("click", () => {
         lfo.start();
 });
-
 const lfosquarebutton = document.getElementById("squarelfo");
 lfosquarebutton.addEventListener("click", () => {
     lfo.type = "square";
@@ -223,8 +305,6 @@ const lfosawtoothbutton = document.getElementById("sawtoothlfo");
 lfosawtoothbutton.addEventListener("click", () => {
     lfo.type = "sawtooth";
 });
-
-
-
+//#endregion
 
 //#endregion
