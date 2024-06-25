@@ -214,7 +214,7 @@ sixsemidown.addEventListener("click", () => {
 });
 const sevensemiup = document.getElementById("sevensemiup");
 sevensemiup.addEventListener("click", () => {
-    oscillator.frequency.value = oscillator.frequency.value * (2 ** (-7 / 12));
+    oscillator.frequency.value = oscillator.frequency.value * (2 ** (7 / 12));
     pitchslider.value = oscillator.frequency.value;
 });
 const sevensemidown = document.getElementById("sevensemidown");
