@@ -30,11 +30,12 @@ startButton.addEventListener("click", () => {
     gainNode.connect(audioContext.destination);
     biquadFilter.frequency.value = 16000;
     oscillator.frequency.value = 92;
-    oscillator.type = "sawtooth";
+    oscillator.type = currentOscillatorType;
     oscillator.start();
     pitchslider.value = oscillator.frequency.value;
     filterslider.value = biquadFilter.frequency.value;
     oscillators.push(oscillator);
+    isOscillatorPlaying = true;
 });
 const stopButton = document.getElementById("stopbutton");
 stopButton.addEventListener("click", () => {
