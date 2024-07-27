@@ -69,6 +69,30 @@ body::after {
     margin-bottom: 20px;
 }
 
+
+#menubuttoncontainer3{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#menubutton3 {
+    width: 300px; height: 50px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: 3px solid white;
+    font-size: 20px;
+    font-weight: bold;
+}
+#menubutton3 {
+    margin: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+
+
+
 /*#endregion*/
 
 /*#region-synth*/
@@ -383,12 +407,64 @@ input[type='range']::-ms-track {
     font-size: 28px;
     color: white;
 }
+#downloadlinkcontainer {
+    text-align: center;
+    margin-top: 60px;
+}
 #downloadlink2 {
     text-align: center;
     font-size: 28px;
     color: white;
 }
 #downloadlinkcontainer2 {
+    text-align: center;
+    margin-top: 60px;
+}
+
+
+
+#mylink {
+    text-align: center;
+    font-size: 28px;
+    color: white;
+}
+#mylinkcontainer {
+    text-align: center;
+    margin-top: 60px;
+}
+#mylink2 {
+    text-align: center;
+    font-size: 28px;
+    color: white;
+}
+#mylinkcontainer2 {
+    text-align: center;
+    margin-top: 60px;
+}
+#mylink3 {
+    text-align: center;
+    font-size: 38px;
+    color: white;
+}
+#mylinkcontainer3 {
+    text-align: center;
+    margin-top: 60px;
+}
+#mylink4 {
+    text-align: center;
+    font-size: 28px;
+    color: white;
+}
+#mylinkcontainer4 {
+    text-align: center;
+    margin-top: 60px;
+}
+#mylink5 {
+    text-align: center;
+    font-size: 28px;
+    color: white;
+}
+#mylinkcontainer5 {
     text-align: center;
     margin-top: 60px;
 }
