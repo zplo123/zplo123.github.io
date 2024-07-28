@@ -13,29 +13,48 @@ body::after {
     display: block;
     height: 150px; /* Adjust the height to the desired space */
 }
-#menutextboxtext {
-    color: black;
+
+#menuheader {
+    color: white;
     font-size: 24px;
+    font-family: monospace;
+    text-align: center;
+    margin-top: 8px;
+}
+#menuheadercontainer {
+    width: 300px;
+    height: 50px;
+    border: 2px solid white;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 0 5px 1px white;
+    margin-top: 50px;
+}
+
+#menutextboxtext {
+    color: white;
+    font-size: 32px;
     font-style: bold;
+    margin-top: 10px;
+    text-align: center;
 }
 #menutextboxcontainer {
     width: 300px;
     height: 300px;
-    border: 6px solid white;
-    overflow-y: scroll;
-    background-color: wheat;
-    box-shadow: 0 0 5px 1px white;
+    background-color: rgb(0, 0, 0);
     position: fixed;
     right: 14%;
 }
+
+
 #menubuttoncontainer{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 80px;
 }
 #menubutton {
     width: 300px; height: 50px;
-    background-color: black;
+    background-color: rgb(123, 63, 176);
     color: white;
     cursor: pointer;
     border: 3px solid white;
@@ -56,7 +75,7 @@ body::after {
 }
 #menubutton2 {
     width: 300px; height: 50px;
-    background-color: black;
+    background-color: rgb(170, 42, 37);
     color: white;
     cursor: pointer;
     border: 3px solid white;
@@ -77,7 +96,7 @@ body::after {
 }
 #menubutton3 {
     width: 300px; height: 50px;
-    background-color: black;
+    background-color: rgb(29, 143, 185);
     color: white;
     cursor: pointer;
     border: 3px solid white;
@@ -443,7 +462,7 @@ input[type='range']::-ms-track {
 }
 #mylink3 {
     text-align: center;
-    font-size: 38px;
+    font-size: 28px;
     color: white;
 }
 #mylinkcontainer3 {
@@ -478,20 +497,20 @@ input[type='range']::-ms-track {
         background-color: black;
     }
     #menutextboxtext {
-        color: black;
-        font-size: 20px;
-        margin-top: 5px;
+        color: white;
+        font-size: 22px;
+        font-style: bold;
+        margin-top: 10px;
+        text-align: center;
     }
     #menutextboxcontainer {
-        position:absolute;
-        left: 50%;
-        top: 70%;
-        transform: translateY(200%);
-        width: 280px;
-        height: 200px;
-        border: 5px solid white;
-        overflow-y: scroll;
-        transform: translate(-50%, -50%);
-        text-align: left;
+        width: 300px;
+        height: 90px;
+        margin-top: 50px;
+        position: relative;
+        right: 0%;
+    }
+    #menubuttoncontainer{
+        margin-top: 20px;
     }
 }
