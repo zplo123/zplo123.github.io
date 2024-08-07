@@ -14,6 +14,7 @@ let isOscillatorPlaying = false;
 let currentOscillatorType = "sawtooth";
 let oscillators = [];
 let gainNode = audioContext.createGain();
+
 //#endregion
 
 //#region startstopbuttons
@@ -28,7 +29,7 @@ startButton.addEventListener("click", () => {
     biquadFilter.connect(gainNode);
     biquadFilter.connect(audioContext.destination);
     gainNode.connect(audioContext.destination);
-    biquadFilter.frequency.value = 16000;
+    biquadFilter.frequency.value = 500;
     oscillator.frequency.value = 92;
     oscillator.type = currentOscillatorType;
     oscillator.start();
@@ -90,7 +91,7 @@ const filterslider = document.getElementById("filterslider");
 filterslider.addEventListener("input", () => {
     if (isFilterOn === true) {
     let minFreq = 0;
-    let maxFreq = 16000;
+    let maxFreq = 1000;
     biquadFilter.frequency.value = minFreq + (filterslider.value / 100) * (maxFreq - minFreq);
     }
 });
@@ -282,11 +283,11 @@ twelvesemidown.addEventListener("click", () => {
 
 //#region lfo
 const lfo = audioContext.createOscillator();
-lfo.type = "sawtooth";
+lfo.type = "triangle";
 lfo.frequency.value = 2;
 
 const lfoDepth = audioContext.createGain();
-lfoDepth.gain.value = 3;
+lfoDepth.gain.value = 2.2;
 lfo.connect(lfoDepth);
 lfoDepth.connect(gainNode.gain);
 
@@ -307,5 +308,8 @@ lfosawtoothbutton.addEventListener("click", () => {
     lfo.type = "sawtooth";
 });
 //#endregion
+
+
+
 
 //#endregion

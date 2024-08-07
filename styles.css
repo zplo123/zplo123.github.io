@@ -401,6 +401,10 @@ input[type='range']::-ms-track {
     width: 75px;
     height: 35px;
 }
+#sinelfo {
+    width: 75px;
+    height: 35px;
+}
 /*#endregion*/
 /*#region-fullcontainers*/
 #shapefullcontainer {
@@ -444,6 +448,33 @@ input[type='range']::-ms-track {
     margin-top: 60px;
 }
 
+#aboutmetextboxtext {
+    color: white;
+    font-size: 28px;
+    font-style: bold;
+    text-align: center;
+    overflow-y: scroll; /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+     height: 100%;
+}
+#aboutmetextboxcontainer {
+    width: 420px;
+    height: 420px;
+    background-color: rgb(135, 109, 27);
+    margin-top: 10px;
+}
+
+.gif-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align items to the start */
+    margin-top: 10px; /* Adjust the margin to bring it down */
+}
+
+.sized-gif {
+    width: 420px; /* Set the width of the GIF */
+    height: auto; /* Maintain the aspect ratio */
+}
 
 
 #mylink {
