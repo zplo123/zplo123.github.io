@@ -462,6 +462,7 @@ input[type='range']::-ms-track {
     height: 420px;
     background-color: rgb(135, 109, 27);
     margin-top: 10px;
+    border: 2px solid #ccc;
 }
 
 .gif-container {
@@ -563,6 +564,7 @@ input[type='range']::-ms-track {
         background-color: rgb(135, 109, 27);
         width: 90%; 
         margin: 0 auto; 
+        border: 2px solid #ccc;
     }
     
     .gif-container {
