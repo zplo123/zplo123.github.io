@@ -554,8 +554,6 @@ input[type='range']::-ms-track {
         font-size: 28px;
         font-style: bold;
         text-align: center;
-        overflow-y: scroll; /* Enable vertical scrolling */
-        border: 2px solid #ccc; /* Optional: Add a border for better visibility */
          height: 100%;
     }
     #aboutmetextboxcontainer {
